@@ -1,0 +1,18 @@
+CREATE TABLE `users` (
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`firstName` varchar(255) NOT NULL,
+	`lastName` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `stipend` (
+	`id` int(10) NOT NULL AUTO_INCREMENT,
+	`studentId` int(10) NOT NULL UNIQUE,
+	`status` int(10) NOT NULL,
+	`how_many` int(10),
+	PRIMARY KEY (`id`), FOREIGN KEY (`studentId`) REFERENCES users (`id`)
+);
+
+INSERT INTO users (firstName,lastName) values ("Владимир", "Семенов");
+
+INSERT INTO stipend (studentId, status,how_many) values (1, false, 1000);
